@@ -1,0 +1,134 @@
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Cloud Manager</h1>
+    <form id="create-bucket-form">
+        <label>Bucket Name:</label>
+        <input type="text" id="bucket-name" required>
+        <button>Create Bucket</button>
+    </form>
+    <form id="upload-file-form">
+        <label>File:</label>
+        <input type="file" id="file" required>
+        <label>Bucket Name:</label>
+        <input type="text" id="bucket-name-upload" required>
+        <button>Upload File</button>
+    </form>
+    <form id="download-file-form">
+        <label>File Name:</label>
+        <input type="text" id="file-name-download" required>
+        <label>Bucket Name:</label>
+        <input type="text" id="bucket-name-download" required>
+        <button>Download File</button>
+    </form>
+    <form id="delete-file-form">
+        <label>File Name:</label>
+        <input type="text" id="file-name-delete" required>
+        <label>Bucket Name:</label>
+        <input type="text" id="bucket-name-delete" required>
+        <button>Delete File</button>
+    </form>
+    <form id="delete-bucket-form">
+        <label>Bucket Name:</label>
+        <input type="text" id="bucket-name-delete-bucket" required>
+        <button>Delete Bucket</button>
+    </form>
+    <div id="result"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+```
+CSS (style.css):
+```
+body {
+    font-family: Arial, sans-serif;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"], input[type="file"] {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 100%;
+    height: 40px;
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3e8e41;
+}
+
+#result {
+    margin-top: 20px;
+}
+```
+JavaScript (script.js):
+```
+const createBucketForm = document.getElementById('create-bucket-form');
+const uploadFileForm = document.getElementById('upload-file-form');
+const downloadFileForm = document.getElementById('download-file-form');
+const deleteFileForm = document.getElementById('delete-file-form');
+const deleteBucketForm = document.getElementById('delete-bucket-form');
+const resultDiv = document.getElementById('result');
+
+// Tambahkan event listener untuk setiap form
+createBucketForm.addEventListener('submit', createBucket);
+uploadFileForm.addEventListener('submit', uploadFile);
+downloadFileForm.addEventListener('submit', downloadFile);
+deleteFileForm.addEventListener('submit', deleteFile);
+deleteBucketForm.addEventListener('submit', deleteBucket);
+
+// Fungsi untuk membuat bucket
+function createBucket(e) {
+    e.preventDefault();
+    const bucketName = document.getElementById('bucket-name').value;
+    // Panggil API untuk membuat bucket
+    // ...
+    resultDiv.innerText = `Bucket ${bucketName} berhasil dibuat`;
+}
+
+// Fungsi untuk mengunggah file
+function uploadFile(e) {
+    e.preventDefault();
+    const file = document.getElementById('file').files[0];
+    const bucketName = document.getElementById('bucket-name-upload').value;
+    // Panggil API untuk mengunggah file
+    // ...
+    resultDiv.innerText = `File berhasil diunggah ke bucket ${bucketName}`;
+}
+
+// Fungsi untuk mengunduh file
+function downloadFile(e) {
+    e.preventDefault();
+    const fileName = document.getElementById('file-name-download').value;
+    const bucketName = document.getElementById('bucket-name-download').value;
+    // Panggil API untuk mengunduh file
+    // ...
+    resultDiv
+```
